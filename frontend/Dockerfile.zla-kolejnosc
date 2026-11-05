@@ -1,0 +1,6 @@
+FROM nginx:alpine
+LABEL maintainer="imie.nazwisko@example.com"
+COPY . /usr/share/nginx/html
+RUN apk add --no-cache nodejs npm && npm install -g htmlhint
+RUN htmlhint /usr/share/nginx/html/index.html
+EXPOSE 80
