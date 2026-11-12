@@ -39,6 +39,11 @@ def check():
     return {"found": False}, 400
 
 
+@app.get("/health")
+def healthcheck():
+    return {"status": "ok"}
+
+
 if __name__ == "__main__":
     # 0.0.0.0 = nasłuchuj na wszystkich interfejsach kontenera, nie tylko na jego localhost
     app.run(host="0.0.0.0", port=5000)
